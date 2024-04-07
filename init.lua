@@ -499,6 +499,7 @@ require('lazy').setup({
         'cssls',
         'eslint-lsp',
         'tailwindcss-language-server',
+        'emmet-ls',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -829,6 +830,42 @@ require('lazy').setup({
       { '<leader>hp', "<cmd>lua require('harpoon.ui').nav_prev()<cr>", desc = 'Go to previous harpoon mark' },
       { '<leader>hs', "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", desc = 'Show harpoon marks' },
     },
+    opts = { menu = {
+      width = vim.api.nvim_win_get_width(0) - 4,
+    } },
+  },
+  {
+    'goolord/alpha-nvim',
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+      'nvim-lua/plenary.nvim',
+    },
+    config = function()
+      local alpha = require 'alpha'
+      local dashboard = require 'alpha.themes.dashboard'
+
+      -- Set header
+      dashboard.section.header.val = {
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+      }
+
+      -- Set menu
+      dashboard.section.buttons.val = {
+        dashboard.button('<leader>sf', '󰭎  > Find file', ':Telescope find_files<CR>'),
+        dashboard.button('<leader>s.', '  > Recent', ':Telescope oldfiles<CR>'),
+      }
+      alpha.setup(dashboard.opts)
+    end,
   },
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
