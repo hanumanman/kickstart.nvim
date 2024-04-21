@@ -179,9 +179,9 @@ return {
         'stylua', -- Used to format Lua code
         'prettierd',
         'cssls',
-        'eslint-lsp',
+        'eslint_d',
         'tailwindcss-language-server',
-        'emmet-ls',
+        'emmet-language-server',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -203,11 +203,11 @@ return {
   {
     'pmizio/typescript-tools.nvim',
     dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
-    keys = {
-      { '<leader>ia', mode = { 'n' }, ':TSToolsAddMissingImports <cr>', desc = '[TSTools]Add all missing imports' },
-      { '<leader>ir', mode = { 'n' }, ':TSToolsRemoveUnusedImports <cr>', desc = '[TSTools]Remove unused imports' },
-    },
     lazy = false,
-    opts = {},
+    opts = {
+      settings = {
+        expose_as_code_action = 'all',
+      },
+    },
   },
 }

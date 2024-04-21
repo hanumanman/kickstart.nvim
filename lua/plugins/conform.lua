@@ -36,6 +36,9 @@ return { -- Formatter
       typescriptreact = { { 'prettierd', 'prettier' } },
       javascriptreact = { { 'prettierd', 'prettier' } },
       yaml = { { 'prettierd', 'prettier' } },
+      jsonc = { { 'prettierd', 'prettier' } },
+      json = { { 'prettierd', 'prettier' } },
+      css = { { 'prettierd', 'prettier' } },
     },
   },
 }
