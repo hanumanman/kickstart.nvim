@@ -6,7 +6,13 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagn
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 -- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 vim.keymap.set('n', ';', ':')
-vim.keymap.set('n', '<leader>bc', ':%bd|e#<cr>', { desc = 'Close other buffers' })
+vim.keymap.set('n', '<cr>', 'o<Esc>')
+vim.keymap.set('n', '<leader><cr>', 'O<Esc>')
+vim.keymap.set('n', ';', ':')
+vim.keymap.set('n', 'Y', 'y$')
+vim.keymap.set('n', '<leader>bc', ':%bd|e#|bd#<cr>', { desc = 'Close other buffers' })
+vim.keymap.set('n', '<C-i>', ':bn<cr>', { desc = 'Go to next buffer' })
+vim.keymap.set('n', '<leader>bl', ':b#<cr>', { desc = 'Go to last opened buffer' })
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows

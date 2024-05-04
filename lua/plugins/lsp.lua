@@ -209,5 +209,9 @@ return {
         expose_as_code_action = {},
       },
     },
+    keys = {
+      { '<leader>is', mode = 'n', ':TSToolsRemoveUnusedImports<cr>', desc = 'Remove unused import' },
+      { '<leader>ia', mode = 'n', ':TSToolsAddMissingImports<cr>', desc = 'Add all missing imports' },
+    },
   },
 }
