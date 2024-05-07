@@ -24,6 +24,7 @@ return { -- Autocompletion
             require('luasnip.loaders.from_vscode').lazy_load()
           end,
         },
+        -- { 'dsznajder/vscode-es7-javascript-react-snippets', build = 'yarn install --frozen-lockfile && yarn compile' },
       },
     },
     'saadparwaiz1/cmp_luasnip',

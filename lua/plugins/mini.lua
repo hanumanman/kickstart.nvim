@@ -1,12 +1,5 @@
 return { -- Collection of various small independent plugins/modules
   'echasnovski/mini.nvim',
-  keys = {
-    -- {
-    --   '<leader>n',
-    --   '<cmd>lua MiniFiles.open()<cr>',
-    --   desc = 'Mini files',
-    -- },
-  },
   config = function()
     -- Better Around/Inside textobjects
     --
@@ -23,10 +16,6 @@ return { -- Collection of various small independent plugins/modules
     -- - sr)'  - [S]urround [R]eplace [)] [']
     require('mini.surround').setup()
     -- Show buffers as tab
-    require('mini.tabline').setup {
-      use_icons = true,
-    }
-    -- Files manipulation
-    -- require('mini.files').setup()
+    require('mini.tabline').setup()
   end,
 }

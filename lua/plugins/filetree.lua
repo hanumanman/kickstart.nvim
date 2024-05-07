@@ -4,7 +4,11 @@ return {
     keys = {
       { '-', '<cmd>Oil<cr>', desc = '[Oil]Open parent directory' },
     },
-    opts = {},
+    opts = {
+      view_options = {
+        show_hidden = true,
+      },
+    },
     -- Optional dependencies
     dependencies = { 'nvim-tree/nvim-web-devicons' },
   },
