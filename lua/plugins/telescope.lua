@@ -14,7 +14,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     { -- If encountering errors, see telescope-fzf-native README for installation instructions
       'nvim-telescope/telescope-fzf-native.nvim',
 
-      -- `build` is used to run some command when the plugin is installed/updated.
+      -- `build` is used to run some command when the plugin is installed/updated.teles
       -- This is only run then, not every time Neovim starts up.
       build = 'make',
 
@@ -62,7 +62,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
       -- },
       pickers = {
         find_files = {
-          hidden = true,
+          hidden = false,
         },
       },
       extensions = {
@@ -81,6 +81,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
     vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
     vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+    vim.keymap.set('n', '<leader>sF', ':lua require"telescope.builtin".find_files({ hidden = true })<CR>', { desc = '[S]earch [F]iles (include hidden files)' })
     vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
     vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
     vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })

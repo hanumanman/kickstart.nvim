@@ -13,6 +13,7 @@ vim.keymap.set('n', 'Y', 'y$')
 vim.keymap.set('n', '<leader>bc', ':%bd|e#|bd#<cr>', { desc = 'Close other buffers' })
 vim.keymap.set('n', '<C-i>', ':bn<cr>', { desc = 'Go to next buffer' })
 vim.keymap.set('n', '<leader>bl', ':b#<cr>', { desc = 'Go to last opened buffer' })
+vim.keymap.set('n', '<leader>bd', ':bd<cr>', { desc = 'Close current buffer' })
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows

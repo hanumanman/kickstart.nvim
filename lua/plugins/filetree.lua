@@ -24,6 +24,9 @@ return {
     } },
     opts = {
       filesystem = {
+        filtered_items = {
+          visible = true,
+        },
         follow_current_file = {
           enabled = true, -- This will find and focus the file in the active buffer every time
           --              -- the current file is changed while the tree is open.
@@ -33,11 +36,9 @@ return {
       event_handlers = {
 
         {
+          -- auto close
           event = 'file_opened',
           handler = function(file_path)
-            -- auto close
-            -- vimc.cmd("Neotree close")
-            -- OR
             require('neo-tree.command').execute { action = 'close' }
           end,
         },
