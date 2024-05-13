@@ -1,6 +1,7 @@
 -- General utils
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('n', ';', ':')
+vim.keymap.set('n', ':', ';')
 vim.keymap.set('n', '<cr>', 'o<Esc>')
 vim.keymap.set('n', '<leader><cr>', 'O<Esc>')
 vim.keymap.set('n', ';', ':')
@@ -12,10 +13,10 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagn
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 
 -- Buffer controls
-vim.keymap.set('n', '<leader>x', ':bd<cr>', { desc = 'Close current buffer' })
-vim.keymap.set('n', '<leader>bc', ':%bd|e#|bd#<cr>', { desc = 'Close other buffers' })
-vim.keymap.set('n', '<C-i>', ':bn<cr>', { desc = 'Go to next buffer' })
-vim.keymap.set('n', '<leader><C-i>', ':b#<cr>', { desc = 'Go to last opened buffer' })
+vim.keymap.set('n', '<leader>x', '<cmd>bd<cr>', { desc = 'Close current buffer' })
+vim.keymap.set('n', '<leader>bc', '<cmd>%bd|e#|bd#<cr>', { desc = 'Close other buffers' })
+vim.keymap.set('n', '<C-i>', '<cmd>bn<cr>', { desc = 'Go to next buffer' })
+vim.keymap.set('n', '<leader><C-i>', '<cmd>b#<cr>', { desc = 'Go to last opened buffer' })
 
 --  Use CTRL+<hjkl> to switch between windows
 --  See :help wincmd for a list of all window commands

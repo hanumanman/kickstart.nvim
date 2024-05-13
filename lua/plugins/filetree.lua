@@ -2,11 +2,22 @@ return {
   {
     'stevearc/oil.nvim',
     keys = {
-      { '-', '<cmd>Oil<cr>', desc = '[Oil]Open parent directory' },
+      { '-', "<cmd>lua require('oil').open_float()<cr>", desc = '[Oil]Open parent directory' },
     },
     opts = {
+      default_file_explorer = false,
       view_options = {
         show_hidden = true,
+      },
+      float = {
+        -- Padding around the floating window
+        padding = 16,
+        max_width = 0,
+        max_height = 0,
+        border = 'rounded',
+        win_options = {
+          winblend = 0,
+        },
       },
     },
     -- Optional dependencies

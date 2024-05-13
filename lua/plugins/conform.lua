@@ -31,7 +31,7 @@ return { -- Formatter
       --
       -- You can use a sub-list to tell conform to run *until* a formatter
       -- is found.
-      javascript = { { 'prettierd', 'prettier' } },
+      javascript = { { 'prettier' } },
       typescript = { { 'prettierd', 'prettier' } },
       typescriptreact = { { 'prettierd', 'prettier' } },
       javascriptreact = { { 'prettierd', 'prettier' } },
@@ -39,6 +39,8 @@ return { -- Formatter
       jsonc = { { 'prettierd', 'prettier' } },
       json = { { 'prettierd', 'prettier' } },
       css = { { 'prettierd', 'prettier' } },
+      astro = { { 'prettier' } },
+      markdown = { { 'prettier' } },
     },
   },
 }

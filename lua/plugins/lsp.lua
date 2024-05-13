@@ -1,6 +1,7 @@
 return {
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
+    lazy = false,
     dependencies = {
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
@@ -51,7 +52,7 @@ return {
 
           -- Execute a code action, usually your cursor needs to be on top of an error
           -- or a suggestion from your LSP for this to activate.
-          map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+          -- map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
           -- Opens a popup that displays documentation about the word under your cursor
           --  See `:help K` for why this keymap.
@@ -120,7 +121,7 @@ return {
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
-        'prettierd',
+        'prettier',
         'cssls',
         'eslint-lsp',
         'tailwindcss-language-server',
@@ -147,14 +148,25 @@ return {
     'pmizio/typescript-tools.nvim',
     dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
     lazy = false,
-    opts = {
-      settings = {
-        expose_as_code_action = {},
-      },
-    },
+    opts = {},
     keys = {
       { '<leader>is', mode = 'n', ':TSToolsRemoveUnusedImports<cr>', desc = 'Remove unused import' },
       { '<leader>ia', mode = 'n', ':TSToolsAddMissingImports<cr>', desc = 'Add all missing imports' },
+    },
+  },
+  {
+    'luckasRanarison/clear-action.nvim',
+    opts = {
+      mappings = {
+        -- The values can either be a string or a string tuple (with description)
+        -- example: "<leader>aq" | { "<leader>aq", "Quickfix" }
+        -- Or if you want more control: { key = "<leader>aq", mode = { "n" }, options = { desc = "Quickfix" } }
+        -- `options` accetps the same keys as vim.keymap.set()
+        code_action = { '<leader>ca', 'Code Action' },
+      },
+      signs = {
+        enable = false,
+      },
     },
   },
 }
