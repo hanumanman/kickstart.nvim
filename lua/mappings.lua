@@ -1,7 +1,6 @@
 -- General utils
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('n', ';', ':')
-vim.keymap.set('n', ':', ';')
 vim.keymap.set('n', '<cr>', 'o<Esc>')
 vim.keymap.set('n', '<leader><cr>', 'O<Esc>')
 vim.keymap.set('n', ';', ':')
