@@ -1,6 +1,6 @@
 return {
   'nvim-lualine/lualine.nvim',
-  dependencies = { 'nvim-tree/nvim-web-devicons', 'nvim-lualine/lualine.nvim' },
+  dependencies = { 'nvim-tree/nvim-web-devicons', 'folke/noice.nvim' },
   config = function()
     require('lualine').setup {
       options = {
@@ -14,8 +14,6 @@ return {
             cond = require('noice').api.statusline.mode.has,
             color = { fg = '#000' },
           },
-          'encoding',
-          'fileformat',
           'filetype',
         },
       },

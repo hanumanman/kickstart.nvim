@@ -7,10 +7,6 @@ return {
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
-      -- Useful status updates for LSP.
-      -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      -- { 'j-hui/fidget.nvim', opts = {} },
-
       { 'folke/neodev.nvim', opts = {} },
     },
     config = function()
@@ -52,7 +48,7 @@ return {
 
           -- Execute a code action, usually your cursor needs to be on top of an error
           -- or a suggestion from your LSP for this to activate.
-          -- map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+          map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
           -- Opens a popup that displays documentation about the word under your cursor
           --  See `:help K` for why this keymap.
@@ -123,7 +119,7 @@ return {
         'stylua', -- Used to format Lua code
         'prettier',
         'cssls',
-        'eslint-lsp',
+        'eslint_d',
         'tailwindcss-language-server',
         'emmet-language-server',
       })
@@ -150,23 +146,23 @@ return {
     lazy = false,
     opts = {},
     keys = {
-      { '<leader>is', mode = 'n', ':TSToolsRemoveUnusedImports<cr>', desc = 'Remove unused import' },
-      { '<leader>ia', mode = 'n', ':TSToolsAddMissingImports<cr>', desc = 'Add all missing imports' },
+      { '<leader>is', mode = 'n', '<cmd>TSToolsRemoveUnusedImports<cr>', desc = 'Remove unused import' },
+      { '<leader>ia', mode = 'n', '<cmd>TSToolsAddMissingImports<cr>', desc = 'Add all missing imports' },
     },
   },
-  {
-    'luckasRanarison/clear-action.nvim',
-    opts = {
-      mappings = {
-        -- The values can either be a string or a string tuple (with description)
-        -- example: "<leader>aq" | { "<leader>aq", "Quickfix" }
-        -- Or if you want more control: { key = "<leader>aq", mode = { "n" }, options = { desc = "Quickfix" } }
-        -- `options` accetps the same keys as vim.keymap.set()
-        code_action = { '<leader>ca', 'Code Action' },
-      },
-      signs = {
-        enable = false,
-      },
-    },
-  },
+  -- {
+  --   'luckasRanarison/clear-action.nvim',
+  --   opts = {
+  --     mappings = {
+  --       -- The values can either be a string or a string tuple (with description)
+  --       -- example: "<leader>aq" | { "<leader>aq", "Quickfix" }
+  --       -- Or if you want more control: { key = "<leader>aq", mode = { "n" }, options = { desc = "Quickfix" } }
+  --       -- `options` accetps the same keys as vim.keymap.set()
+  --       code_action = { '<leader>ca', 'Code Action' },
+  --     },
+  --     signs = {
+  --       enable = false,
+  --     },
+  --   },
+  -- },
 }
