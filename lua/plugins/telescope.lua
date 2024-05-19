@@ -61,6 +61,9 @@ return { -- Fuzzy Finder (files, lsp, etc)
       --   },
       -- },
       pickers = {
+        oldfiles = {
+          cwd_only = true,
+        },
         find_files = {
           hidden = false,
         },

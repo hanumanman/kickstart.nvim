@@ -2,6 +2,18 @@ return {
   'folke/noice.nvim',
   event = 'VeryLazy',
   opts = {
+    views = {
+      cmdline_popup = {
+        border = {
+          style = 'double',
+          padding = { 0, 0 },
+        },
+        win_options = {
+          winhighlight = 'NormalFloat:NormalFloat,FloatBorder:FloatBorder',
+          winblend = 0,
+        },
+      },
+    },
     lsp = {
       -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
       override = {
@@ -13,9 +25,6 @@ return {
     -- you can enable a preset for easier configuration
     presets = {
       lsp_doc_border = true, -- add a border to hover docs and signature help
-    },
-    cmdline = {
-      view = 'virtualtext',
     },
   },
   dependencies = {
