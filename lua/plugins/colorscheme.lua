@@ -6,6 +6,9 @@ return {
       vim.o.background = 'dark'
       vim.cmd.colorscheme 'kanagawa'
     end,
+    config = function()
+      require('kanagawa').setup {}
+    end,
     lazy = false,
   },
   -- { 'sainnhe/gruvbox-material' },
