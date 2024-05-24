@@ -41,6 +41,7 @@ return { -- Formatter
       css = { { 'prettierd', 'prettier' } },
       astro = { { 'prettier' } },
       markdown = { { 'prettier' } },
+      html = { { 'prettier' } },
     },
   },
 }
