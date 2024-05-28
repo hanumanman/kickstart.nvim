@@ -1,16 +1,31 @@
 return {
-  -- {
-  --   'rebelot/kanagawa.nvim',
-  --   priority = 1000, -- Make sure to load this before all the other start plugins.
-  --   init = function()
-  --     vim.o.background = 'dark'
-  --     vim.cmd.colorscheme 'kanagawa'
-  --   end,
-  --   config = function()
-  --     require('kanagawa').setup {}
-  --   end,
-  --   lazy = false,
-  -- },
+  {
+    'rebelot/kanagawa.nvim',
+    lazy = false,
+    config = function()
+      require('kanagawa').setup {
+        colors = {
+          theme = {
+            all = {
+              ui = {
+                bg_gutter = 'none',
+              },
+            },
+          },
+        },
+        overrides = function(colors) -- add/modify highlights
+          local theme = colors.theme
+          return {
+            NormalFloat = { bg = 'none' },
+            FloatBorder = { bg = 'none' },
+            FloatTitle = { bg = 'none' },
+          }
+        end,
+      }
+      -- setup must be called before loading
+      vim.cmd 'colorscheme kanagawa'
+    end,
+  },
   -- { 'sainnhe/gruvbox-material' },
   -- {
   --   '2nthony/vitesse.nvim',
@@ -21,35 +36,35 @@ return {
   --     vim.cmd.colorscheme 'vitesse'
   --   end,
   -- },
-  {
-    'ellisonleao/gruvbox.nvim',
-    priority = 1000,
-    config = function()
-      require('gruvbox').setup {
-        terminal_colors = true, -- add neovim terminal colors
-        undercurl = true,
-        underline = true,
-        bold = true,
-        italic = {
-          strings = false,
-          emphasis = true,
-          comments = true,
-          operators = false,
-          folds = true,
-        },
-        strikethrough = true,
-        invert_selection = false,
-        invert_signs = false,
-        invert_tabline = false,
-        invert_intend_guides = false,
-        inverse = true, -- invert background for search, diffs, statuslines and errors
-        contrast = 'soft', -- can be "hard", "soft" or empty string
-        dim_inactive = false,
-        transparent_mode = true,
-      }
-      vim.cmd 'colorscheme gruvbox'
-    end,
-  },
+  -- {
+  --   'ellisonleao/gruvbox.nvim',
+  --   priority = 1000,
+  --   config = function()
+  --     require('gruvbox').setup {
+  --       terminal_colors = true, -- add neovim terminal colors
+  --       undercurl = true,
+  --       underline = true,
+  --       bold = true,
+  --       italic = {
+  --         strings = false,
+  --         emphasis = true,
+  --         comments = true,
+  --         operators = false,
+  --         folds = true,
+  --       },
+  --       strikethrough = true,
+  --       invert_selection = false,
+  --       invert_signs = false,
+  --       invert_tabline = false,
+  --       invert_intend_guides = false,
+  --       inverse = true, -- invert background for search, diffs, statuslines and errors
+  --       contrast = 'soft', -- can be "hard", "soft" or empty string
+  --       dim_inactive = false,
+  --       transparent_mode = true,
+  --     }
+  --     vim.cmd 'colorscheme gruvbox'
+  --   end,
+  -- },
   -- {
   --   'folke/tokyonight.nvim',
   --   lazy = false,
