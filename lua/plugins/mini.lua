@@ -17,5 +17,6 @@ return { -- Collection of various small independent plugins/modules
     require('mini.surround').setup()
     -- Show buffers as tab
     require('mini.tabline').setup()
+    require('mini.cursorword').setup()
   end,
 }
