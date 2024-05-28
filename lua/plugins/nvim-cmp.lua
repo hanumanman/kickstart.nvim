@@ -39,9 +39,36 @@ return { -- Autocompletion
     -- See `:help cmp`
     local cmp = require 'cmp'
     local luasnip = require 'luasnip'
+
+    local has_words_before = function()
+      if vim.api.nvim_buf_get_option(0, 'buftype') == 'prompt' then
+        return false
+      end
+      local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+      return col ~= 0 and vim.api.nvim_buf_get_text(0, line - 1, 0, line - 1, col, {})[1]:match '^%s*$' == nil
+    end
+
     luasnip.config.setup {}
 
     cmp.setup {
+      sorting = {
+        priority_weight = 2,
+        comparators = {
+          require('copilot_cmp.comparators').prioritize,
+
+          -- Below is the default comparitor list and order for nvim-cmp
+          cmp.config.compare.offset,
+          -- cmp.config.compare.scopes, --this is commented in nvim-cmp too
+          cmp.config.compare.exact,
+          cmp.config.compare.score,
+          cmp.config.compare.recently_used,
+          cmp.config.compare.locality,
+          cmp.config.compare.kind,
+          cmp.config.compare.sort_text,
+          cmp.config.compare.length,
+          cmp.config.compare.order,
+        },
+      },
       snippet = {
         expand = function(args)
           luasnip.lsp_expand(args.body)
@@ -61,7 +88,6 @@ return { -- Autocompletion
         -- Scroll the documentation window [b]ack / [f]orward
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
-
         -- Accept ([y]es) the completion.
         --  This will auto-import if your LSP supports it.
         --  This will expand snippets if the LSP sent a snippet.
@@ -95,9 +121,12 @@ return { -- Autocompletion
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
       },
       sources = {
-        { name = 'nvim_lsp' },
-        { name = 'luasnip' },
-        { name = 'path' },
+        -- Copilot Source
+        { name = 'copilot', group_index = 2 },
+        -- Other Sources
+        { name = 'nvim_lsp', group_index = 2 },
+        { name = 'path', group_index = 2 },
+        { name = 'luasnip', group_index = 2 },
       },
     }
   end,
