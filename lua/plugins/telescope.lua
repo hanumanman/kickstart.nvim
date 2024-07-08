@@ -51,15 +51,22 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
     -- [[ Configure Telescope ]]
     -- See `:help telescope` and `:help telescope.setup()`
+
+    local function filenameFirst(_, path)
+      local tail = vim.fs.basename(path)
+      local parent = vim.fs.dirname(path)
+      if parent == '.' then
+        return tail
+      end
+      return string.format('%s\t\t%s', tail, parent)
+    end
     require('telescope').setup {
       -- You can put your default mappings / updates / etc. in here
       --  All the info you're looking for is in `:help telescope.setup()`
       --
-      -- defaults = {
-      --   mappings = {
-      --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-      --   },
-      -- },
+      defaults = {
+        path_display = filenameFirst,
+      },
       pickers = {
         oldfiles = {
           cwd_only = true,

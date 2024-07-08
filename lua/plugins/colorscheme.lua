@@ -7,7 +7,27 @@ return {
       vim.cmd.colorscheme 'kanagawa'
     end,
     config = function()
-      require('kanagawa').setup {}
+      require('kanagawa').setup {
+        colors = {
+          theme = {
+            all = {
+              ui = {
+                bg_gutter = 'none',
+              },
+            },
+          },
+        },
+        overrides = function(colors) -- add/modify highlights
+          local theme = colors.theme
+          return {
+            NormalFloat = { bg = 'none' },
+            FloatBorder = { bg = 'none' },
+            FloatTitle = { bg = 'none' },
+          }
+        end,
+      }
+      -- setup must be called before loading
+      vim.cmd 'colorscheme kanagawa'
     end,
     lazy = false,
   },
@@ -43,11 +63,11 @@ return {
   --       invert_tabline = false,
   --       invert_intend_guides = false,
   --       inverse = true, -- invert background for search, diffs, statuslines and errors
-  --       contrast = '', -- can be "hard", "soft" or empty string
+  --       contrast = 'soft', -- can be "hard", "soft" or empty string
   --       palette_overrides = {},
   --       overrides = {},
   --       dim_inactive = false,
-  --       transparent_mode = false,
+  --       transparent_mode = true,
   --     }
   --     vim.cmd 'colorscheme gruvbox'
   --   end,
@@ -66,7 +86,22 @@ return {
   --   name = 'catppuccin',
   --   priority = 1000,
   --   init = function()
-  --     vim.cmd.colorscheme 'catppuccin-macchiato'
+  --     vim.cmd.colorscheme 'catppuccin'
+  --   end,
+  -- },
+  -- {
+  --   'olimorris/onedarkpro.nvim',
+  --   priority = 1000, -- Ensure it loads first
+  --   init = function()
+  --     vim.cmd.colorscheme 'onedark_vivid'
+  --   end,
+  -- },
+  -- {
+  --   'AlexvZyl/nordic.nvim',
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     require('nordic').load()
   --   end,
   -- },
 }
