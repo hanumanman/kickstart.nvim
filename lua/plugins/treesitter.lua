@@ -53,8 +53,9 @@ return {
     'windwp/nvim-ts-autotag',
     dependencies = 'nvim-treesitter/nvim-treesitter',
     config = function()
+      ---@diagnostic disable-next-line: missing-parameter
       require('nvim-ts-autotag').setup()
     end,
-    event = 'VeryLazy',
+    lazy = false,
   },
 }

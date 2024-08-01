@@ -11,7 +11,7 @@ return {
       },
       float = {
         -- Padding around the floating window
-        padding = 16,
+        padding = 4,
         max_width = 0,
         max_height = 0,
         border = 'rounded',
@@ -53,7 +53,7 @@ return {
         {
           -- auto close
           event = 'file_opened',
-          handler = function(file_path)
+          handler = function()
             require('neo-tree.command').execute { action = 'close' }
           end,
         },

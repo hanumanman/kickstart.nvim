@@ -1,6 +1,6 @@
 -- General utils
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-vim.keymap.set('n', ';', ':')
+-- vim.keymap.set('n', ';', ':')
 vim.keymap.set('n', '<cr>', 'o<Esc>')
 vim.keymap.set('n', '<leader><cr>', 'O<Esc>')
 vim.keymap.set('n', ';', ':')
@@ -25,4 +25,4 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- Yank word and Insert console.log() of that word in next line
-vim.keymap.set('n', '<leader>l', 'yawoconsole.log("Logging <C-r>0", <C-r>0);<esc>')
+vim.keymap.set('n', '<leader>l', 'yawoconsole.log("Logging <C-r>0", <C-r>0);<esc>', { desc = 'Log current word' })
