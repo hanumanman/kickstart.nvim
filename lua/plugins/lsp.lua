@@ -101,6 +101,19 @@ return {
             },
           },
         },
+        cssls = {
+          settings = {
+            css = { validate = true, lint = {
+              unknownAtRules = 'ignore',
+            } },
+            scss = { validate = true, lint = {
+              unknownAtRules = 'ignore',
+            } },
+            less = { validate = true, lint = {
+              unknownAtRules = 'ignore',
+            } },
+          },
+        },
       }
       require('mason').setup()
 
@@ -110,7 +123,7 @@ return {
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
         'prettier',
-        'cssls',
+        -- 'cssls',
         'eslint_d',
         'tailwindcss-language-server',
         'emmet-language-server',
