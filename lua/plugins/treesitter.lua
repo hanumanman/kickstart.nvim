@@ -7,6 +7,9 @@ return {
     },
     opts = {
       ensure_installed = { 'bash', 'c', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc', 'css', 'fish', 'javascript', 'typescript', 'tsx' },
+      pattern = {
+        ['.env.*'] = 'dotenv',
+      },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
@@ -53,8 +56,9 @@ return {
     'windwp/nvim-ts-autotag',
     dependencies = 'nvim-treesitter/nvim-treesitter',
     config = function()
+      ---@diagnostic disable-next-line: missing-parameter
       require('nvim-ts-autotag').setup()
     end,
-    event = 'VeryLazy',
+    lazy = false,
   },
 }

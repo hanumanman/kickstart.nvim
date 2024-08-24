@@ -29,8 +29,8 @@ return {
     -- stylua: ignore
     dashboard.section.buttons.val = {
       dashboard.button("o", " " .. " Recent files",    "<cmd> Telescope oldfiles <cr>"),
-      dashboard.button("f", " " .. " Find file",       "<cmd> Telescope find_files <cr>"),
-      dashboard.button("g", " " .. " Find text",       "<cmd> Telescope live_grep <cr>"),
+      dashboard.button("s", " " .. " Find file",       "<cmd> Telescope find_files <cr>"),
+      dashboard.button("v", " " .. " Find text",       "<cmd> Telescope live_grep <cr>"),
       dashboard.button("q", " " .. " Quit",            "<cmd> qa <cr>"),
     }
     for _, button in ipairs(dashboard.section.buttons.val) do
